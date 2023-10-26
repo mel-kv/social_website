@@ -5,6 +5,11 @@ from django.contrib.auth.decorators import login_required
 from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+
+
+
 
 
 @login_required
