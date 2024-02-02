@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
-
 from dotenv import load_dotenv, find_dotenv
+from django.urls import reverse_lazy
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(find_dotenv())
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'social_django',
     'django_extensions',
     'images.apps.ImagesConfig',
+    'easy_thumbnails',
 
 
 ]
@@ -136,3 +138,6 @@ SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.user.user_details',
 ]
 
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}

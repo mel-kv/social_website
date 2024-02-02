@@ -52,6 +52,6 @@ function bookmarkletLaunch() {
     })
   })
 }
-// launch the bookmkarklet
+
 bookmarkletLaunch();
 
