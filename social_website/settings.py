@@ -3,7 +3,6 @@ from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 from django.urls import reverse_lazy
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(find_dotenv())
 
@@ -12,9 +11,9 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 if DEBUG:
     import mimetypes
+
     mimetypes.add_type('application/javascript', '.js', True)
     mimetypes.add_type('text/css', '.css', True)
-
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,7 +31,6 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'actions.apps.ActionsConfig',
     'debug_toolbar',
-
 
 ]
 
@@ -107,7 +105,6 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
@@ -148,3 +145,7 @@ ABSOLUTE_URL_OVERRIDES = {
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
